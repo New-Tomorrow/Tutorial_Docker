@@ -15,7 +15,6 @@ const CadastroFuncionario = () => {
   const [data, setData] = useState("")
   const cargos = ["DESENVOLVEDOR", "ADMINISTRADOR"]
   const [cargo, setCargo] = useState("")
-
   let location = useNavigate();
   function comeback() {
     location('/listar');
@@ -60,7 +59,7 @@ const CadastroFuncionario = () => {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
-      body: JSON.stringify({ nome: nome, sobrenome: sobrenome, data: data, cargo: cargo }),
+      body: JSON.stringify({ nome: nome, sobrenome: sobrenome, data: data, cargos: cargo }),
     })
       .then((resposta) => resposta.json())
       .then((data) => {

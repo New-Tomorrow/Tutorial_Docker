@@ -12,10 +12,9 @@ const AtualizarFuncionario = () => {
     const [nome, setNome] = useState("")
     const [sobrenome, setSobrenome] = useState("")
     const [data, setData] = useState("")
-    const cargos = ["DESENVOLVEDOR", "ADMINISTRADOR"]
+    const cargosEmpresa = ["DESENVOLVEDOR", "ADMINISTRADOR"]
     const [cargo, setCargo] = useState("")
     const { id } = useParams();
-
 
     let location = useNavigate();
     function comeback() {
@@ -56,12 +55,12 @@ const AtualizarFuncionario = () => {
             return
         }
 
-        fetch("http://localhost:3001/employee/update", {
-            method: 'PATCH',
+        fetch("http://localhost:3001/employee/update/" + id,{
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            body: JSON.stringify({ id: id, nome: nome, sobrenome: sobrenome, cargo: cargo, dataInicio: data + "T03:00:00.000Z", ativo: true })
+            body: JSON.stringify({ nome: nome, sobrenome: sobrenome, cargos: cargo, data: data })
         }).then((response) => {
             if (response.status === 200) {
                 Swal.fire({
@@ -78,7 +77,7 @@ const AtualizarFuncionario = () => {
     }
     function getPorId(id) {
         if (id) {
-            fetch("http://localhost:3001/employee/one" + id, {
+            fetch("http://localhost:3001/employee/one/" + id, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -88,8 +87,8 @@ const AtualizarFuncionario = () => {
                     if (data != null) {
                         setNome(data.nome)
                         setSobrenome(data.sobrenome)
-                        setCargo(data.cargo)
-                        setData(data.dataInicio)
+                        setCargo(data.cargos)
+                        setData(data.data)
                     }
                 });
         }
@@ -110,7 +109,7 @@ const AtualizarFuncionario = () => {
                             <CampoCadastro titulo="Nome" type="text" id="nome" placeholder="Digite o nome" value={nome} setValue={setNome} />
                             <CampoCadastro para="sobrenome" titulo="Sobrenome" type="text" name="sobrenome" id="sobrenome" placeholder="Digite o sobrenome" value={sobrenome} setValue={setSobrenome} />
                             <CampoCadastro para="data" titulo="Data de início" type="date" name="data" id="data" value={data} setValue={setData} />
-                            <SelectCargo cargo={cargo} setCargo={setCargo} listaCargos={cargos} />
+                            <SelectCargo cargo={cargo} setCargo={setCargo} listaCargos={cargosEmpresa} />
                             <Botao titulo="Salvar" className="w-full text-gray-900 bg-blue-200 hover:bg-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onclick={() => AtualizarFuncionario()} />
                         </form>
                     </div>

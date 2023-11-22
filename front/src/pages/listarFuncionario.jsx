@@ -44,7 +44,7 @@ const ListarFuncionario = () => {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch("http://localhost:3001/employee/delete/" + id, {
+                fetch("http://localhost:3001/employee/delete/", {
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json;charset=utf-8'
@@ -135,13 +135,13 @@ const ListarFuncionario = () => {
 
                                                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray"
                                                 >
-                                                    {funcionario.cargo}
+                                                    {funcionario.cargos}
                                                 </td>
                                                 <td
 
                                                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray"
                                                 >
-                                                    {formatarData(funcionario.dataInicio)}
+                                                    {formatarData(funcionario.data)}
                                                 </td>
 
                                                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray">
