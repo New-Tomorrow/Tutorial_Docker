@@ -2,12 +2,14 @@ version: '3.8'
 services:
   server:
     container_name: container-servidor
+    build: "./backend"
     command: npm install
     ports:
       - "3001:3001"
     entrypoint: npm run dev
   client:
     container_name: container-front
+    build: "./frontend"
     command: npm install
     ports:
       - "3000:3000"
