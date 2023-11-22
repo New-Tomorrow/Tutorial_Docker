@@ -1,16 +1,16 @@
-version: '3'
+version: '3.8'
 services:
-  backend:
-    build:
-      context: ./backend
+  server:
+    image: imagem-server
+    container_name: container-servidor
+    command: npm install
     ports:
-      - "3001:3000"
-
-  frontend:
-    build:
-      context: ./frontend
+      - "3001:3001"
+    entrypoint: npm run dev
+  client:
+    image: imagem-client
+    container_name: container-front
+    command: npm install
     ports:
-      - "80:80"  
-
-     depends_on:
-      - backend
+      - "3000:3000"
+    entrypoint: npm run start

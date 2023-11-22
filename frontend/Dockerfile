@@ -1,11 +1,6 @@
 FROM node:14
-
 WORKDIR /app
-
-COPY package.json .
+COPY . /app
 RUN npm install
-
-COPY public/ ./public/
-COPY src/ ./src/
-
-CMD ["npm", "start"]
+EXPOSE 3000
+ENTRYPOINT npm run start

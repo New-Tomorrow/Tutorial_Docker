@@ -1,11 +1,6 @@
 FROM node:14
-
-WORKDIR /app
-
-COPY package.json .
-COPY tsconfig.json .
+WORKDIR /entrega
+COPY . /entrega
 RUN npm install
-
-COPY src/ ./src/
-
-CMD ["npm", "start"]
+EXPOSE 3001
+ENTRYPOINT npm run dev
