@@ -1,4 +1,4 @@
-FROM node:14
+FROM alpine:2.6
 WORKDIR /entrega
 COPY . /entrega
 RUN npm install
