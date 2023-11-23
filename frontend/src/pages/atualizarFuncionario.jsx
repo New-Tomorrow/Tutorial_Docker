@@ -55,7 +55,7 @@ const AtualizarFuncionario = () => {
             return
         }
 
-        fetch("http://localhost:3001/employee/update/" + id,{
+        fetch("http://34.197.2.245:3001/employee/update/" + id,{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -77,7 +77,7 @@ const AtualizarFuncionario = () => {
     }
     function getPorId(id) {
         if (id) {
-            fetch("http://localhost:3001/employee/one/" + id, {
+            fetch("http://34.197.2.245:3001/employee/one/" + id, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

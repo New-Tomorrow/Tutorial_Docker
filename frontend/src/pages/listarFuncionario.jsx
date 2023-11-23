@@ -11,7 +11,7 @@ const ListarFuncionario = () => {
     const [funcionariosFiltrados, setFuncionariosFiltrados] = useState([])
 
     function getData() {
-        fetch("http://localhost:3001/employee/list", {
+        fetch("http://34.197.2.245:3001/employee/list", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -44,7 +44,7 @@ const ListarFuncionario = () => {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch("http://localhost:3001/employee/delete/", {
+                fetch("http://34.197.2.245:3001/employee/delete/", {
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json;charset=utf-8'

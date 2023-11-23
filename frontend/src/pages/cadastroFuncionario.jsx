@@ -54,7 +54,7 @@ const CadastroFuncionario = () => {
       return
     }
 
-    fetch("http://localhost:3001/employee/create", {
+    fetch("http://34.197.2.245:3001/employee/create", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
